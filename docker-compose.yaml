@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mine-starter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    networks:
+      - traefik_web
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.mine-starter.rule=Host(`mine-starter.homelab`)'
+      - 'traefik.http.services.mine-starter.loadbalancer.server.port=3000'
+      - 'traefik.http.middlewares.mine-starter.compress=true'
+    env_file:
+      - .env.local
+
+networks:
+  traefik_web:
+    external: true

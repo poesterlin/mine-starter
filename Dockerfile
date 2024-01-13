@@ -6,7 +6,7 @@ COPY pnpm-lock.yaml ./
 RUN pnpm fetch
 
 COPY . .
-RUN RUN pnpm install -r --offline && pnpm run build && pnpm prune --prod
+RUN pnpm install -r --offline && pnpm run build && pnpm prune --prod
 
 FROM node:20-slim
 WORKDIR /app

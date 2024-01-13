@@ -17,7 +17,7 @@ export const actions: Actions = {
         }
 
         await updateServer(serverId, 'start');
-        await setTimeout(3000);
+        await setTimeout(4000);
     },
 
     stopServer: async ({ request }) => {
@@ -28,7 +28,7 @@ export const actions: Actions = {
         }
 
         await updateServer(serverId, 'stop');
-        await setTimeout(3000);
+        await setTimeout(4000);
     }
 
 };
